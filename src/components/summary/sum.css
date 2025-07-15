@@ -1,0 +1,94 @@
+/* Base Reset and Body Styling */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #89f7fe, #66a6ff);
+  color: #333;
+}
+
+/* Main Summary Container */
+.summary-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffffdd;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Title and Score Section */
+.summary-container > h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  background-color: #e1f5fe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.summary-container > h1 span {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Summary List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #ffffff;
+  border-left: 6px solid #7e57c2;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+li h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+li p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.correct-answer {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.selected-answer {
+  color: #0288d1;
+}
+
+/* Button Styling */
+button {
+  display: block;
+  margin: 30px auto;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  background-color: #42a5f5;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+}
