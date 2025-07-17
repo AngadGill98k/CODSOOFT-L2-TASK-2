@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./quiz.css"
 import { useLocation, useNavigate } from 'react-router-dom';
-let Quiz = () => {
+const Quiz = () => {
   let [count, setc] = useState(0)
   let location = useLocation()
   let navigate=useNavigate()
@@ -32,13 +32,13 @@ let Quiz = () => {
   
  function handleclick(s_opt) {
   s_quiz(prevQuiz => {
-    let updatedQuestions = prevQuiz[0].questions.map((q, idx) => {
+    const updatedQuestions = prevQuiz[0].questions.map((q, idx) => {
       if (idx !== count) return q;
 
       // Log the selected option before returning
       console.log(`Option ${s_opt} selected for question ${count + 1}`);
 
-      let updatedQuestion = {
+      const updatedQuestion = {
         ...q,
         op1: { ...q.op1, status: s_opt === "op1" },
         op2: { ...q.op2, status: s_opt === "op2" },
@@ -114,8 +114,7 @@ let Quiz = () => {
   return (
   <>
     {(!quiz[0] || !quiz[0].questions) ? (
-      <div className="loading-spinner"></div>
-
+      <div>Loading quiz...</div>
     ) : (
       <>
         <div className='container'>
@@ -124,8 +123,8 @@ let Quiz = () => {
             <div id='question'>{quiz[0].questions[count].question}</div>
             <div id='options'>
   {["op1", "op2", "op3", "op4"].map(optKey => {
-    let opt = quiz[0].questions[count][optKey];
-    let isSelected = opt.status;
+    const opt = quiz[0].questions[count][optKey];
+    const isSelected = opt.status;
     return (
       <button
         key={optKey}

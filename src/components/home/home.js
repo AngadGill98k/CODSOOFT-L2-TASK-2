@@ -1,19 +1,24 @@
-import React from 'react';
-import './css.css';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import './css.css'
+import { useNavigate } from 'react-router-dom'
 
-let Home = () => {
+const Home = () => {
   let navigate = useNavigate();
 
+  let handlecreate = () => {
+    navigate('/create');
+  };
+
+  let handletake = () => {
+    navigate('/take');
+  };
+
   return (
-    <div className="home-container">
-      <div className="header">
-        <h1>Quizzy</h1>
-        <p>Your Interactive Quiz Companion</p>
-      </div>
-      <div className="quiz-buttons">
-        <button onClick={() => navigate('/create')} id="c_quiz">Create Quiz</button>
-        <button onClick={() => navigate('/take')} id="t_quiz">Take Quiz</button>
+    <div className="quiz-wrapper">
+      <div id="quiz">
+        <h1 className="quiz-title">Quizzy</h1> {/* Add website title here */}
+        <button onClick={handlecreate} id="c_quiz">Create Quiz</button>
+        <button onClick={handletake} id="t_quiz">Take Quiz</button>
       </div>
     </div>
   );

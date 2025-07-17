@@ -1,7 +1,7 @@
 import React from 'react'
 import { data } from 'react-router-dom'
 
-let Login = () => {
+const Login = () => {
     let handlesubmit=()=>{
         let mail=document.querySelector('#mail')
         mail=mail.innerText

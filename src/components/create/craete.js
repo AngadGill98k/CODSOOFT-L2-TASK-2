@@ -2,24 +2,24 @@ import React, { useRef, useState } from 'react';
 import './create.css';
 import { useNavigate } from 'react-router-dom';
 
-let Create = () => {
-    let q_list = useRef(null);
-    let [quest, setq] = useState([]);
-    let navigate = useNavigate();
-    let url = 'http://localhost:3001/';
+const Create = () => {
+    const q_list = useRef(null);
+    const [quest, setq] = useState([]);
+    const navigate = useNavigate();
+    const url = 'http://localhost:3001/';
 
     function add() {
-        let question = document.querySelector('#ques');
-        let o1 = document.querySelector('#opt1');
-        let o2 = document.querySelector('#opt2');
-        let o3 = document.querySelector('#opt3');
-        let o4 = document.querySelector('#opt4');
+        const question = document.querySelector('#ques');
+        const o1 = document.querySelector('#opt1');
+        const o2 = document.querySelector('#opt2');
+        const o3 = document.querySelector('#opt3');
+        const o4 = document.querySelector('#opt4');
 
-        let ques = question.value.trim();
-        let opt1 = o1.value.trim();
-        let opt2 = o2.value.trim();
-        let opt3 = o3.value.trim();
-        let opt4 = o4.value.trim();
+        const ques = question.value.trim();
+        const opt1 = o1.value.trim();
+        const opt2 = o2.value.trim();
+        const opt3 = o3.value.trim();
+        const opt4 = o4.value.trim();
 
         if (!ques || !opt1 || !opt2 || !opt3 || !opt4) {
             alert("Please fill in all fields before adding the question.");
@@ -48,15 +48,15 @@ let Create = () => {
 
     function handleSelect(index, sel_opt) {
         setq(prev => {
-            let updated = [...prev];
+            const updated = [...prev];
             updated[index].correct = sel_opt;
             return updated;
         });
     }
 
     function submit() {
-        let q_name = document.querySelector('#quiz_name');
-        let name = q_name.value.trim();
+        const q_name = document.querySelector('#quiz_name');
+        const name = q_name.value.trim();
 
         if (!name) {
             alert("Quiz name cannot be empty.");
@@ -108,8 +108,7 @@ let Create = () => {
             <button id='add' onClick={add}>Add Question</button>
             <ul ref={q_list}>
                 {quest.map((value, index) => (
-                    <li key={index} className="fade-in">
-
+                    <li key={index}>
 <div>
   {value.question} 
   <span className="hint">{" (Choose the correct answer)"}</span>
