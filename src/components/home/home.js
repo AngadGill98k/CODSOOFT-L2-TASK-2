@@ -1,23 +1,22 @@
-import React from 'react'
-import './css.css'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import './css.css';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-  let  navigate=useNavigate()
-  let handlecreate=()=>{
-    navigate('/create')
-  }
-  let handletake=()=>{
-    navigate('/take')
-  }
+let Home = () => {
+  let navigate = useNavigate();
+
   return (
-    <>
-    <div id='quiz'>
-      <button onClick={handlecreate} id='c_quiz'>create quiz</button>
-      <button onClick={handletake} id='t_quiz'>take quiz</button>
+    <div className="home-container">
+      <div className="header">
+        <h1>Quizzy</h1>
+        <p>Your Interactive Quiz Companion</p>
+      </div>
+      <div className="quiz-buttons">
+        <button onClick={() => navigate('/create')} id="c_quiz">Create Quiz</button>
+        <button onClick={() => navigate('/take')} id="t_quiz">Take Quiz</button>
+      </div>
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

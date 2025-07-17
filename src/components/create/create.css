@@ -1,3 +1,4 @@
+/* -------------------- BASE -------------------- */
 * {
   box-sizing: border-box;
 }
@@ -9,13 +10,8 @@ body {
   background: linear-gradient(135deg, #74ebd5, #ACB6E5);
   color: #1a1a1a;
 }
-.hint {
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.5); /* light/opaque black */
-  font-size: 0.9em;
-  margin-left: 8px;
-}
 
+/* -------------------- CONTAINER -------------------- */
 #create-container {
   max-width: 700px;
   margin: 40px auto;
@@ -23,13 +19,16 @@ body {
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.6s ease-out;
 }
 
+/* -------------------- HEADINGS -------------------- */
 #create-container h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* -------------------- INPUTS -------------------- */
 input[type="text"] {
   width: 100%;
   padding: 10px 15px;
@@ -37,45 +36,40 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 10px;
   font-size: 1rem;
+  transition: 0.3s ease;
 }
 
-#add {
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4dd0e1;
+  box-shadow: 0 0 5px rgba(77, 208, 225, 0.4);
+}
+
+/* -------------------- BUTTONS -------------------- */
+#add,
+button[type="submit"],
+button:last-of-type {
+  display: block;
+  margin: 20px auto 0 auto;
   background-color: #4dd0e1;
   color: #00363a;
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 12px;
   cursor: pointer;
-  margin-top: 15px;
   transition: all 0.3s ease;
 }
 
-#add:hover {
+#add:hover,
+button[type="submit"]:hover,
+button:last-of-type:hover {
   background-color: #26c6da;
   transform: scale(1.05);
 }
 
-button[type="submit"],
-button:last-of-type {
-  background-color: #9575cd;
-  color: #2c1364;
-  border: none;
-  padding: 12px 25px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-}
-
-button[type="submit"]:hover,
-button:last-of-type:hover {
-  background-color: #7e57c2;
-  transform: scale(1.05);
-}
-
+/* -------------------- QUESTIONS LIST -------------------- */
 ul {
   margin-top: 30px;
   padding-left: 0;
@@ -88,6 +82,8 @@ li {
   border-radius: 12px;
   margin-bottom: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.4s ease both;
+  transition: transform 0.3s ease;
 }
 
 li div {
@@ -99,8 +95,60 @@ li input[type='radio'] {
   margin-right: 8px;
   margin-bottom: 5px;
 }
-#add {
+
+li label {
   display: block;
-  margin: 20px auto 0 auto; /* centers horizontally */
+  margin-bottom: 5px;
 }
 
+/* -------------------- HINT -------------------- */
+.hint {
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.9em;
+  margin-left: 8px;
+}
+
+/* -------------------- ANIMATIONS -------------------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* -------------------- RESPONSIVE DESIGN -------------------- */
+@media (max-width: 768px) {
+  #create-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  input[type="text"] {
+    font-size: 0.95rem;
+  }
+
+  #add,
+  button[type="submit"],
+  button:last-of-type {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li label {
+    margin-bottom: 6px;
+  }
+}

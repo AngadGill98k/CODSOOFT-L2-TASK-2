@@ -1,11 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const PORT=3001
-const app = express();
+let express = require('express');
+let mongoose = require('mongoose');
+let cors = require('cors');
+let PORT=3001
+let app = express();
 app.use(cors());
 app.use(express.json());
-const Quiz=require('./model/quiz.js')
+let Quiz=require('./model/quiz.js')
 mongoose.connect('mongodb://127.0.0.1:27017/quiz')
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
@@ -27,11 +27,11 @@ app.post('/c_quiz',async (req,res)=>{
     res.send({msg:'ok',quiz})
 })
 app.get('/search_quiz', async (req, res) => {
-  const query = req.query.query;
+  let query = req.query.query;
   if (!query) return res.json({ msg: "Empty query", quiz: [] });
 
   try {
-    const result = await Quiz.find({
+    let result = await Quiz.find({
       name: { $regex: query, $options: 'i' } // case-insensitive partial match
     });
 
@@ -53,4 +53,4 @@ app.post('/quiz',async (req,res)=>{
     console.log('quiz founded',quiz)
     res.json({msg:"founded",quiz})
 })
-app.listen(PORT, () => console.log('Server running on port 5000'));  
+app.listen(PORT, () => console.log('Server running on port 3001'));  

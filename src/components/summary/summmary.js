@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import "./sum.css"
-const Summmary = () => {
+let Summmary = () => {
   let location = useLocation();
   let { total, marks, summary } = location.state || {};
   let navigate=useNavigate()
